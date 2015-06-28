@@ -1,10 +1,12 @@
 package circle.small;
 
-import circle.AbstractCircleFactory;
+import circle.CircleFactory;
 import circle.Filling;
 import circle.Line;
 
-public class SmallCircleFactory implements AbstractCircleFactory {
+import java.awt.*;
+
+public class SmallCircleFactory implements CircleFactory {
 
     private static SmallCircleFactory smallCircleFactory = null;
 
@@ -19,12 +21,12 @@ public class SmallCircleFactory implements AbstractCircleFactory {
     }
 
     @Override
-    public Line makeLine() {
-        return new SmallLine();
+    public Line makeLine(Graphics2D g) {
+        return new SmallLine(g);
     }
 
     @Override
-    public Filling makeFilling() {
-        return new SmallFilling();
+    public Filling makeFilling(Graphics2D g) {
+        return new SmallFilling(g);
     }
 }

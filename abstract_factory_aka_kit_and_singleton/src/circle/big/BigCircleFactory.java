@@ -1,10 +1,12 @@
 package circle.big;
 
-import circle.AbstractCircleFactory;
+import circle.CircleFactory;
 import circle.Filling;
 import circle.Line;
 
-public class BigCircleFactory implements AbstractCircleFactory {
+import java.awt.*;
+
+public class BigCircleFactory implements CircleFactory {
 
     private static BigCircleFactory bigCircleFactory = null;
 
@@ -19,12 +21,12 @@ public class BigCircleFactory implements AbstractCircleFactory {
     }
 
     @Override
-    public Line makeLine() {
-        return new BigLine();
+    public Line makeLine(Graphics2D g) {
+        return new BigLine(g);
     }
 
     @Override
-    public Filling makeFilling() {
-        return new BigFilling();
+    public Filling makeFilling(Graphics2D g) {
+        return new BigFilling(g);
     }
 }
